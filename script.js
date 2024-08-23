@@ -17,13 +17,23 @@ for (let i = 0; i < btnsShowModal.length; i++) {
 }
 
 // add 'hidden' class when the X / .close-modal btn is clicked
-btnCloseModal.addEventListener("click", function () {
-  modal.classList.add("hidden");
-  overlay.classList.add("hidden");
-});
+// btnCloseModal.addEventListener("click", function () {
+//   modal.classList.add("hidden");
+//   overlay.classList.add("hidden");
+// });
 
 // add 'hidden' class when any part of the overlay is clicked
-overlay.addEventListener("click", function () {
+// overlay.addEventListener("click", function () {
+//   modal.classList.add("hidden");
+//   overlay.classList.add("hidden");
+// });
+
+// Instead of writing the same code twice like above, create a function to make it DRY
+const closeModal = function () {
   modal.classList.add("hidden");
   overlay.classList.add("hidden");
-});
+};
+
+// then add this function to the appropriate eventListener
+btnCloseModal.addEventListener("click", closeModal); // DO NOT add () after closeModal, if you do it will immediately call that function, instead of waiting for the click event
+overlay.addEventListener("click", closeModal);
