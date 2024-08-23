@@ -11,5 +11,6 @@ for (let i = 0; i < btnsShowModal.length; i++) {
     // testing with clog to make sure that each show modal btn is affected with this for loop
     console.log("Button Clicked");
     modal.classList.remove("hidden"); // removing the class name of 'hidden' when the show-modal btn is clicked (by removing this class, the modal will be able to be seen)
+    overlay.classList.remove("hidden"); // remove 'hidden' class on overlay
   });
 }
