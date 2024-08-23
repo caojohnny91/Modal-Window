@@ -1,5 +1,5 @@
 "use strict";
-
+// modal buttons
 const modal1Btn = document.querySelector("#modal-1-btn");
 const modal2Btn = document.querySelector("#modal-2-btn");
 const modal3Btn = document.querySelector("#modal-3-btn");
