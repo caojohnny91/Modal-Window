@@ -1,11 +1,12 @@
 "use strict";
 
-// First, select all the class elements we need (.modal, .overlay, .close-modal, .show-modal)and store them into variables
+// First, select all the class elements we will need (.modal, .overlay, .close-modal, .show-modal)and store them into variables to make next step cleaner and easier to read
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const btnCloseModal = document.querySelector(".close-modal");
 const btnsShowModal = document.querySelectorAll(".show-modal"); // use All to select all elements with this clsss and not just the first one.
 
+// remove 'hidden' class
 for (let i = 0; i < btnsShowModal.length; i++) {
   btnsShowModal[i].addEventListener("click", function () {
     // testing with clog to make sure that each show modal btn is affected with this for loop
@@ -14,3 +15,10 @@ for (let i = 0; i < btnsShowModal.length; i++) {
     overlay.classList.remove("hidden"); // remove 'hidden' class on overlay
   });
 }
+
+// add 'hidden' class
+btnCloseModal.addEventListener("click", function () {
+  // add 'hidden' class to .modal and .overlay
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+});
