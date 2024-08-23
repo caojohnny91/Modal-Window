@@ -34,6 +34,23 @@ const closeModal = function () {
   overlay.classList.add("hidden");
 };
 
-// then add this function to the appropriate eventListener
+// then add this closeModal function as an arugument to the appropriate eventListener
 btnCloseModal.addEventListener("click", closeModal); // DO NOT add () after closeModal, if you do it will immediately call that function, instead of waiting for the click event
 overlay.addEventListener("click", closeModal);
+
+// we can also create an openModal function and do the same for the eventListener above
+
+// create global event on that will listen on the whole document like the keyboard event here
+// no matter where you are on the page, this will always trigger the specified event
+// other key events: 'keypress': when it is help down, 'keyup': when the key is released, 'keydown': when the key is pressed down
+document.addEventListener("keydown", function (event) {
+  // first log event to find info on the object when you press the key
+  //   console.log(event); // KeyboardEvent {isTrusted: true, key: 'Escape', code: 'Escape', location: 0, ctrlKey: false, …}
+
+  // create if statement for when the event.key is the 'Escape' button and if the modal class does NOT contain the hidden class
+  if (event.key === "Escape" && !modal.classList.contains("hidden")) {
+    console.log("Escape button was pressed");
+    // then call the close modal function with ()
+    closeModal();
+  }
+});
